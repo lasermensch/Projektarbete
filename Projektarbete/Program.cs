@@ -9,8 +9,7 @@ namespace Projektarbete
             Console.WriteLine("Hello World!");
             Console.WriteLine("Tjena tjena");
             Console.WriteLine("All your base are belong to us!");
-            Console.WriteLine("Andre in the house");
         }
-    } 
+    } //André testar läggga till en kommentar
 
 }
