@@ -11,6 +11,7 @@ namespace Projektarbete
             Console.WriteLine("All your base are belong to us!");
             //Det funkar niceeeeeee
             Console.WriteLine("hej");
+            Console.WriteLine("testar igen");
         }
     } //André testar läggga till en kommentar
 
