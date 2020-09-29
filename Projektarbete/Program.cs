@@ -19,11 +19,14 @@ namespace Projektarbete
         public int Toughness;
         public int Initiative;
         public int Luck;
+
+        //Attack method
     }
 
     class Player : Entities
     {
         //Backpack list
+        //Eat method
     }
     class Enemy : Entities
     {
