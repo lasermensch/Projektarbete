@@ -7,32 +7,30 @@ namespace Projektarbete
     {
         static void Main(string[] args)
         {
-            int[,] map = new int[10, 10];
+            var map = new int[10, 10];
 
             int height = map.GetLength(0);
             int width = map.GetLength(1);
 
             for (int i = 0; i < height; i++)
             {
-                for (int y = 0; y < width; y++)
+                for (int j = 0; j < width; j++)
                 {
-                    Console.Write(string.Format($"{0} " + "   ", map[i,y]));
+                    Console.Write("x" + " ");
                 }
-                Console.Write(Environment.NewLine + Environment.NewLine);
+                Console.Write(Environment.NewLine);
             }
         }
-
-        
     }
 
     class Entities
     {
         public int Health;
         public int Strenght;
-        public int Armour;
-        public int Toughness;
-        public int Initiative;
-        public int Luck;
+        //public int Armour;
+        //public int Toughness;
+        //public int Initiative;
+        //public int Luck;
 
         //Attack method
     }
