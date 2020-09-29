@@ -7,14 +7,9 @@ namespace Projektarbete
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.WriteLine("Tjena tjena");
-            Console.WriteLine("All your base are belong to us!");
-            //Det funkar niceeeeeee
-            Console.WriteLine("hej");
-            Console.WriteLine("testar igen");
+            throw new Exception();
         }
-    } //André testar läggga till en kommentar
+    }
 
     class Entities
     {
