@@ -18,6 +18,7 @@ namespace Projektarbete
         public int Armour;
         public int Toughness;
         public int Initiative;
+        public int Luck;
     }
 
     class Player : Entities
