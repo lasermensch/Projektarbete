@@ -7,8 +7,22 @@ namespace Projektarbete
     {
         static void Main(string[] args)
         {
-            throw new Exception();
+            int[,] map = new int[10, 10];
+
+            int height = map.GetLength(0);
+            int width = map.GetLength(1);
+
+            for (int i = 0; i < height; i++)
+            {
+                for (int y = 0; y < width; y++)
+                {
+                    Console.Write(string.Format($"{0} " + "   ", map[i,y]));
+                }
+                Console.Write(Environment.NewLine + Environment.NewLine);
+            }
         }
+
+        
     }
 
     class Entities
