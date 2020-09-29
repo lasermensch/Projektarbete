@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Projektarbete
 {
@@ -14,5 +15,24 @@ namespace Projektarbete
             Console.WriteLine("testar igen");
         }
     } //André testar läggga till en kommentar
+
+    class Entities
+    {
+        public int Health;
+        public int Strenght;
+        public int Armour;
+        public int Toughness;
+        public int Initiative;
+    }
+
+    class Player : Entities
+    {
+        //Backpack list
+    }
+    class Enemy : Entities
+    {
+
+    }
+
 
 }
