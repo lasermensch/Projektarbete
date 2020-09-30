@@ -10,7 +10,11 @@ namespace Projektarbete
 
         static void Main(string[] args)
         {
-            StartGame();
+            World world = new World(30, 30);
+            world.GeneratePositions(10);
+
+            world.PrintWorld();
+            Console.ReadKey();
         }
         static void StartGame()
         {
