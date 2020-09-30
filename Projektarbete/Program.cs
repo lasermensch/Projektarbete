@@ -1,25 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Projektarbete
 {
     class Program
     {
-        static void Main(string[] args)
+        static void StartGame()
         {
-            var map = new int[10, 10];
+            DrawWalls();
+        }
+
+        static void DrawWalls()
+        {
+            var map = new char[30, 30];
+            
 
             int height = map.GetLength(0);
             int width = map.GetLength(1);
 
-            for (int i = 0; i < height; i++)
+
+            for (int i = 0; i < height - 1; i++)
             {
-                for (int j = 0; j < width; j++)
+                map[i, 0] = '=';
+                map[i, height - 1] = '=';
+                for (int j = 0; j < width - 1; j++)
                 {
-                    Console.Write("x" + " ");
+                    map[0, j] = '-';
+                    map[width - 1, j] = '|';
                 }
-                Console.Write(Environment.NewLine);
+                //Console.Write(Environment.NewLine);
             }
+
+            for (int x = 0; x < height; x++)
+            {
+                for (int y = 0; y < width; y++)
+                {
+                    Console.Write(map[x,y] + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            StartGame();
         }
     }
 
