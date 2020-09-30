@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 
 namespace Projektarbete
 {
@@ -19,7 +20,7 @@ namespace Projektarbete
         static void StartGame()
         {
             DrawWalls();
-            DrawPlayer();
+            InstantiatePlayer();
         }
 
         static void DrawWalls()
@@ -51,8 +52,12 @@ namespace Projektarbete
             }
         }
 
-        static void DrawPlayer()
+        static void InstantiatePlayer()
         {
+            var character = new Player();
+            character.Health = 10;
+            character.Strenght = 2;
+            
             PlayerMovement();
         }
 
