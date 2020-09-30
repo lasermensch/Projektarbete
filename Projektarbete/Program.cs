@@ -15,48 +15,19 @@ namespace Projektarbete
             world.GeneratePositions(10);
 
             world.PrintWorld();
+            StartGame();
             Console.ReadKey();
         }
         static void StartGame()
         {
-            DrawWalls();
             InstantiatePlayer();
-        }
-
-        static void DrawWalls()
-        {
-            var map = new char[30, 30];
-            int height = map.GetLength(0);
-            int width = map.GetLength(1);
-
-            for (int i = 0; i < height - 1; i++)
-            {
-                map[i, 0] = '.';
-                map[i, height - 1] = '.';
-                for (int j = 0; j < width - 1; j++)
-                {
-                    map[0, j] = '.';
-                    map[width - 1, j] = '.';
-                }
-            }
-
-            map[29, 29] = '.';
-
-            for (int x = 0; x < height; x++)
-            {
-                for (int y = 0; y < width; y++)
-                {
-                    Console.Write(map[x, y] + " ");
-                }
-                Console.Write(Environment.NewLine);
-            }
         }
 
         static void InstantiatePlayer()
         {
             var character = new Player();
             character.Health = 10;
-            character.Strenght = 2;
+            character.Strength = 2;
             
             PlayerMovement();
         }
