@@ -79,7 +79,7 @@ namespace Projektarbete
             {
                 for (int j = 0; j < Width; j++)
                 {
-                    Console.Write(Map[i, j] + " ");
+                    Console.Write(Map[i, j]);
                 }
                 Console.Write(Environment.NewLine);
             }
