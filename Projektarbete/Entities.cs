@@ -11,9 +11,15 @@
 
         
 
-        public int Attack(int strength, int armour)
+        public int Punch(int strength, int armour)
         {
             int damage = armour - strength; //Så att någonting händer baserat på armour och strength. 
+            return damage;
+        }
+
+        public int Kick(int strenght, int armour)
+        {
+            int damage = armour - (strenght + 2);//Lägger till mer skada vid Kick funktionen.
             return damage;
         }
     }
