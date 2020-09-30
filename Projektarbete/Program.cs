@@ -25,66 +25,66 @@ namespace Projektarbete
 
         static void InstantiatePlayer()
         {
-            var character = new Player();
+            var character = new Player(); //Exempel på instans av spelare, värden kan ändras efter behov.
             character.Health = 10;
             character.Strength = 2;
-            
+
             PlayerMovement();
         }
 
-        static void PlayerMovement()
+        static void PlayerMovement() //Kodstycke som säger åt konsolen hur "spelaren" rör sig runt på spelplanen.
         {
-            var map = new char[30, 30];
-
+           
+            var Map = new char[30, 30];
+            int Width = Map.GetLength(1);
+            int Height = Map.GetLength(0);
             char player = '¤';
 
-            Point playPos = new Point(15, 15);
-            map[playPos.X, playPos.Y] = player;
+            int x = Width / 2;
+            int y = Height / 2;
+            Map[y, x] = player;
 
-            for (int i = 0; i < map.GetLength(0); i++)
-            {
-                for (int j = 0; j < map.GetLength(1); j++)
-                {
-                    Console.Write(map[i, j]);
-                }
-                Console.Write(Environment.NewLine);
-            }
 
             while (true)
             {
-                map[playPos.X, playPos.Y] = '#';
-
-                Console.SetCursorPosition(playPos.X, playPos.Y);
+                Map[y, x] = '.';
+                Console.SetCursorPosition(x, y);
                 var command = Console.ReadKey(true).Key;
-                Console.Write(map[playPos.X, playPos.Y]);
+                Console.Write(Map[y, x]);
 
 
                 switch (command)
                 {
-
+                    case ConsoleKey.RightArrow:
+                        if (x < Width - 2)
+                            x++;
+                        break;
                     case ConsoleKey.LeftArrow:
-                        playPos.X--;
+                        if (x > 1)
+                            x--;
                         break;
                     case ConsoleKey.UpArrow:
-                        playPos.Y--;
-                        break;
-                    case ConsoleKey.RightArrow:
-                        playPos.X++;
+                        if (y > 1)
+                            y--;
                         break;
                     case ConsoleKey.DownArrow:
-                        playPos.Y++;
+                        if (y < Height - 2)
+                            y++;
                         break;
                     default:
                         break;
                 }
 
-                map[playPos.X, playPos.Y] = player;
-
-                Console.SetCursorPosition(playPos.X, playPos.Y);
-
-                Console.Write(map[playPos.X, playPos.Y]);
-
+                Map[y, x] = player;
+                try
+                {
+                    Console.SetCursorPosition(x, y);
+                }
+                catch { }
+                Console.Write(Map[y, x]);
             }
+
         }
     }
 }
+
