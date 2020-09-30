@@ -22,15 +22,16 @@ namespace Projektarbete
 
             for (int i = 0; i < height - 1; i++)
             {
-                map[i, 0] = '=';
-                map[i, height - 1] = '=';
+                map[i, 0] = '.';
+                map[i, height - 1] = '.';
                 for (int j = 0; j < width - 1; j++)
                 {
-                    map[0, j] = '-';
-                    map[width - 1, j] = '|';
+                    map[0, j] = '.';
+                    map[width - 1, j] = '.';
                 }
-                //Console.Write(Environment.NewLine);
             }
+
+            map[29, 29] = '.';
 
             for (int x = 0; x < height; x++)
             {
@@ -40,6 +41,7 @@ namespace Projektarbete
                 }
                 Console.WriteLine();
             }
+
         }
 
         static void Main(string[] args)
