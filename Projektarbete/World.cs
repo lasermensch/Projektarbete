@@ -40,8 +40,8 @@ namespace Projektarbete
         public void GeneratePositions(int numberOfEntities) //Bestämmer punkter för objekt och fiender.
         {
             Random r = new Random();
-            int x = -1;
-            int y = -1;
+            int x;
+            int y;
             Point p;
             
             while (true)

@@ -2,8 +2,8 @@
 {
     class Entities
     {
-        public int Health;
-        public int Strength;
+        public int Health { get; set; }
+        public int Strenght { get; set; }
         //public int Armour;
         //public int Toughness;
         //public int Initiative;
