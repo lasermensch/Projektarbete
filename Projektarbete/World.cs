@@ -58,9 +58,21 @@ namespace Projektarbete
                 }
                 if (numberOfEntities < 1)
                     break;
+
+                //Instansierar en placeholder för items
+                //x = r.Next(1, Width);
+                //y = r.Next(1, Height);
+                //if (Map[y, x] == '.')
+                //{
+
+                //    Map[y, x] = 'A'; //placeholder. för att ha någonting i kodandets stund.
+                //    p = new Point(x, y);
+                //    Positions.Add(p);
+                //}
             }
             
         }
+
         public void PrintWorld()
         {
             for (int i = 0; i < Height; i++)
