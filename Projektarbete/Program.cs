@@ -1,11 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Security.Cryptography.X509Certificates;
 
 namespace Projektarbete
 {
     class Program
     {
+
+        static void Main(string[] args)
+        {
+            StartGame();
+        }
         static void StartGame()
         {
             DrawWalls();
@@ -14,7 +20,7 @@ namespace Projektarbete
         static void DrawWalls()
         {
             var map = new char[30, 30];
-            
+
 
             int height = map.GetLength(0);
             int width = map.GetLength(1);
@@ -37,38 +43,16 @@ namespace Projektarbete
             {
                 for (int y = 0; y < width; y++)
                 {
-                    Console.Write(map[x,y] + " ");
+                    Console.Write(map[x, y] + " ");
                 }
                 Console.WriteLine();
             }
-
         }
 
-        static void Main(string[] args)
+        static void PlayerMovement()
         {
-            StartGame();
+
         }
-    }
-
-    class Entities
-    {
-        public int Health;
-        public int Strenght;
-        //public int Armour;
-        //public int Toughness;
-        //public int Initiative;
-        //public int Luck;
-
-        //Attack method
-    }
-
-    class Player : Entities
-    {
-        //Backpack list
-        //Eat method
-    }
-    class Enemy : Entities
-    {
 
     }
 
