@@ -49,6 +49,12 @@ namespace Projektarbete
 
         static void DrawPlayer()
         {
+            Random rnd = new Random();
+
+            var player = new Player();
+            player.Health = rnd.Next(6, 10);
+            player.Strength = rnd.Next(6, 10);
+
             PlayerMovement();
         }
 
