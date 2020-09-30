@@ -3,7 +3,7 @@
     class Entities
     {
         public int Health;
-        public int Strenght;
+        public int Strength;
         //public int Armour;
         //public int Toughness;
         //public int Initiative;
