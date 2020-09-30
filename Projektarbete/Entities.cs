@@ -10,6 +10,8 @@
         //public int Luck;
 
         //Attack method
+
+        //Testkommentar för push
     }
 
 
