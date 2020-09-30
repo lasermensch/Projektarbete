@@ -2,9 +2,16 @@
 {
     class Item
     {
-        public int apple = 3;
-        public int pear = 2;
-        public int orange = 4;
-        public int banana = 8;
+        //Consumables
+        public int apple { get; set; }
+        public int orange { get; set; }
+        public int pear { get; set; }
+        public int banana { get; set; }
+
+        //Passive items
+        public int shield { get; set; }
+        public int armour { get; set; }
+        public int sword { get; set; }
+        public int dagger { get; set; }
     }
 }
