@@ -9,9 +9,10 @@
         //public int Initiative;
         //public int Luck;
 
-        //Attack method
-
-        //Testkommentar för push
+        public int Attack(int damage)
+        {
+            return damage;
+        }
     }
 
 
