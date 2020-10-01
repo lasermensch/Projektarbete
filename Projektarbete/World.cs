@@ -7,20 +7,19 @@ using System.Drawing;
 
 namespace Projektarbete
 {
-    public class World
+    class World
     {
         //Klassmedlemmar:
         public char[,] Map { get; protected set; } //kartans rutnät. Protected set innebär att bara denna klass och underklasser har tillgång till att direkt tilldela denna egenskap ett värde.
         public int Width { get; protected set; } //Så att man kan använda sig av width och height senare.
         public int Height { get; protected set; }
-        public List<Point> Positions { get; protected set; } //Lista över positioner för objekt och fiender. KAN vara överflödig.
-
+        public List<Entities> ListOfItemsAndEnemies { get; protected set; }
         public World(int height, int width) //Konstruktor för att generera världen.
         {
             Map = new char[height, width]; 
             Width = Map.GetLength(1); 
             Height = Map.GetLength(0);
-            Positions = new List<Point>();
+            ListOfItemsAndEnemies = new List<Entities>();
 
             for (int i = 0; i < Height; i++)
             {
@@ -53,7 +52,13 @@ namespace Projektarbete
                 {
                     Map[y, x] = '@'; //placeholder. för att ha någonting i kodandets stund.
                     p = new Point(x, y);
-                    Positions.Add(p);
+                    Entities entity = new Enemy();
+
+                    if (numberOfEntities > 5)
+                        entity = new Item();
+                    
+                    entity.position = p;
+                    ListOfItemsAndEnemies.Add(entity);
                     numberOfEntities--;
                 }
                 if (numberOfEntities < 1)
