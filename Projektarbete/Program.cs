@@ -15,27 +15,27 @@ namespace Projektarbete
             world.GeneratePositions(10);
 
             world.PrintWorld();
-            StartGame();
+            StartGame(world);
             Console.ReadKey();
         }
-        static void StartGame()
+        static void StartGame(World world)
         {
-            InstantiatePlayer();
+            InstantiatePlayer(world);
         }
 
-        static void InstantiatePlayer()
+        static void InstantiatePlayer(World world)
         {
             var character = new Player(); //Exempel på instans av spelare, värden kan ändras efter behov.
             character.Health = 10;
             character.Strength = 2;
 
-            PlayerMovement();
+            PlayerMovement(world);
         }
 
-        static void PlayerMovement() //Kodstycke som säger åt konsolen hur "spelaren" rör sig runt på spelplanen.
+        static void PlayerMovement(World world) //Kodstycke som säger åt konsolen hur "spelaren" rör sig runt på spelplanen.
         {
-           
-            var Map = new char[30, 30];
+
+            var Map = world.Map;
             int Width = Map.GetLength(1);
             int Height = Map.GetLength(0);
             char player = '¤';
