@@ -76,11 +76,9 @@ namespace Projektarbete
                 }
 
                 Map[y, x] = player;
-                try
-                {
-                    Console.SetCursorPosition(x, y);
-                }
-                catch { }
+                
+                Console.SetCursorPosition(x, y);
+                
                 Console.Write(Map[y, x]);
             }
 
