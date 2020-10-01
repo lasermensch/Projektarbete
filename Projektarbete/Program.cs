@@ -21,6 +21,7 @@ namespace Projektarbete
         static void StartGame(World world)
         {
             InstantiatePlayer(world);
+            InstantiateEnemies(world);
         }
 
         static void InstantiatePlayer(World world)
@@ -28,8 +29,14 @@ namespace Projektarbete
             var character = new Player(); //Exempel på instans av spelare, värden kan ändras efter behov.
             character.Health = 10;
             character.Strength = 2;
+            character.Armour = 4;
 
             PlayerMovement(world);
+        }
+
+        static void InstantiateEnemies(World world)
+        {
+            var enemies = new List<int>();
         }
 
         static void PlayerMovement(World world) //Kodstycke som säger åt konsolen hur "spelaren" rör sig runt på spelplanen.
