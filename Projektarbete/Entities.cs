@@ -1,4 +1,6 @@
-﻿namespace Projektarbete
+﻿using System;
+
+namespace Projektarbete
 {
     class Entities
     {
@@ -18,6 +20,15 @@
             armour = Armour;
 
             int damage = health + armour - strength; //Så att någonting händer baserat på armour och strength. 
+            return damage;
+        }
+        public int Punch(Random rng, int armour) //Modifierad metod.
+        {
+            int damage = 0;
+            int luckModifier = rng.Next(-3 + Luck, 0);
+            damage = luckModifier + Strength - armour;
+            if (damage < 1)
+                damage = 0;
             return damage;
         }
 
