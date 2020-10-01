@@ -1,6 +1,6 @@
 ﻿namespace Projektarbete
 {
-    class Item
+    class Item : Entities
     {
         //Consumables
         public int apple { get; set; }
