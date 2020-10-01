@@ -183,6 +183,7 @@ namespace Projektarbete
                 }
                 Thread.Sleep(1500);
             }
+            Console.SetCursorPosition(0, 35); //Så att den inte skriver ut meddelandet på kartan!
             if (player.Health > 0)
             { Console.WriteLine("You have bested your foe!"); return true; }
             else

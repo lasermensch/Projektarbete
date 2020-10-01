@@ -52,7 +52,7 @@ namespace Projektarbete
                 {
                     Map[y, x] = '@'; //placeholder. för att ha någonting i kodandets stund.
                     p = new Point(x, y);
-                    Entities entity = new Enemy();
+                    Entities entity = new Enemy(); //När det finns en konstruktor för Enemy måste detta fixas. Samma gäller för Item nedan.
 
                     if (numberOfEntities > 5)
                         entity = new Item();
