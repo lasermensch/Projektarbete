@@ -10,7 +10,6 @@
 
         //Passive items
         public int shield { get; set; }
-        public int armour { get; set; }
         public int sword { get; set; }
         public int dagger { get; set; }
     }
