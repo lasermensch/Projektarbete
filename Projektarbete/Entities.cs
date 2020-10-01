@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 namespace Projektarbete
 {
@@ -10,7 +11,7 @@ namespace Projektarbete
         public int Toughness { get; set; }
         public int Initiative { get; set; }
         public int Luck { get; set; }
-
+        public Point position { get; set; } //Så att varje föremål och fiende har en fix plats på i världen.
         
 
         public int Punch(int health, int strength, int armour)
