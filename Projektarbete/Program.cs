@@ -11,7 +11,7 @@ namespace Projektarbete
 
         static void Main(string[] args)
         {
-            World world = new World(30, 30);
+            World world = new World(30, 60);
             world.GeneratePositions(10);
 
             world.PrintWorld();
