@@ -2,11 +2,10 @@
 {
     class Item : Entities
     {
-        //Consumables
-        public int apple { get; set; }
-        public int orange { get; set; }
-        public int pear { get; set; }
-        public int banana { get; set; }
+        public int apple = 3;
+        public int orange = 4;
+        public int pear = 5;
+        public int banana = 6;
 
         //Passive items
         public int shield { get; set; }

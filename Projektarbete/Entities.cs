@@ -43,11 +43,6 @@ namespace Projektarbete
             return damage;
         }
 
-        public int Eat(int currentHealth, int healthRegen) //Funktion för att beräkna nytt Health värde efter spelaren/fienden har blivit skadad.
-        {
-            currentHealth += healthRegen;
-            return currentHealth;
-        }
     }
 
 

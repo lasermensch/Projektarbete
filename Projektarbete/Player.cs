@@ -5,7 +5,6 @@ namespace Projektarbete
 {
     class Player : Entities
     {
-
         List<Item> Backpack = new List<Item>();
 
         public void PickUp(Item item)
@@ -13,7 +12,7 @@ namespace Projektarbete
             Backpack.Add(item);
         }
         public int Punch(Random rng, int armour)
-        {
+        { 
             int damage = 0;
             int luckModifier = rng.Next(-3 + Luck, 0);
             damage = luckModifier + Strength - armour;
@@ -29,6 +28,12 @@ namespace Projektarbete
             if (damage < 1)
                 damage = 0;
             return damage;
+        }
+
+        public int Eat(int currentHealth, int healthRegen) //Funktion för att beräkna nytt Health värde efter spelaren/fienden har blivit skadad.
+        {
+            currentHealth += healthRegen;
+            return currentHealth;
         }
     }
 }
