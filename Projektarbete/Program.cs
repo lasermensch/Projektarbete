@@ -12,6 +12,7 @@ namespace Projektarbete
 
         static void Main(string[] args)
         {
+            Console.SetWindowSize(100, 60);
             World world = new World(30, 60);
             world.GeneratePositions(10);
 
@@ -83,7 +84,14 @@ namespace Projektarbete
                 if (Map[y, x] != '.')
                 {
                     Entities entity = world.ListOfItemsAndEnemies.Find(e => (e.position.X == x && e.position.Y == y));
-                    if (!Meet(character, entity))
+                    bool pass = Meet(character, entity, out bool hasFought);
+                    if (hasFought) 
+                    {
+                        Thread.Sleep(1500);
+                        Console.Clear();
+                        world.PrintWorld();
+                    }
+                    if (!pass)
                     {
                         x = temp.Item1;
                         y = temp.Item2;
@@ -91,20 +99,23 @@ namespace Projektarbete
                     }
                 }
                 Map[y, x] = player;
-                
+
                 Console.SetCursorPosition(x, y);
-                
+
                 Console.Write(Map[y, x]);
             }
 
         }
-        static bool Meet(Player player, Entities entity)
+        static bool Meet(Player player, Entities entity, out bool hasFought)
         {
+            hasFought = false;
             bool pass = false;
             if (entity.GetType().ToString().EndsWith("Enemy"))
             {
                 if (Fight(player, entity as Enemy))
                     pass = true;
+
+                hasFought = true;
             }
             else
             {
@@ -183,7 +194,7 @@ namespace Projektarbete
                 }
                 Thread.Sleep(1500);
             }
-            Console.SetCursorPosition(0, 32); //Så att den inte skriver ut meddelandet på kartan!
+            //Console.SetCursorPosition(0, 32); //Så att den inte skriver ut meddelandet på kartan!
             if (player.Health > 0)
             { Console.WriteLine("You have bested your foe!"); return true; }
             else
