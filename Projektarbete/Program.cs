@@ -53,7 +53,7 @@ namespace Projektarbete
             while (true)
             {
                 Map[y, x] = '.';
-                Point temp = new Point(x, y);
+                Tuple<int, int> temp = new Tuple<int, int>(x, y); //Lagra koordinaten, utifall fienden inte besegras.
                 Console.SetCursorPosition(x, y);
                 var command = Console.ReadKey(true).Key;
                 Console.Write(Map[y, x]);
@@ -85,8 +85,8 @@ namespace Projektarbete
                     Entities entity = world.ListOfItemsAndEnemies.Find(e => (e.position.X == x && e.position.Y == y));
                     if (!Meet(character, entity))
                     {
-                        x = temp.X;
-                        y = temp.Y;
+                        x = temp.Item1;
+                        y = temp.Item2;
                         continue;
                     }
                 }
@@ -183,7 +183,7 @@ namespace Projektarbete
                 }
                 Thread.Sleep(1500);
             }
-            Console.SetCursorPosition(0, 35); //Så att den inte skriver ut meddelandet på kartan!
+            Console.SetCursorPosition(0, 32); //Så att den inte skriver ut meddelandet på kartan!
             if (player.Health > 0)
             { Console.WriteLine("You have bested your foe!"); return true; }
             else
