@@ -11,6 +11,13 @@ namespace Projektarbete
         {
             Backpack.Add(item);
         }
+
+        public static void displayBackpack()
+        {
+            //Tanken är att skapa en foreach loop av innehållet i listan backpack och skriva ut den här,
+            //sedan kalla metoden från StartGame().
+        }
+
         public int Punch(Random rng, int armour)
         { 
             int damage = 0;
@@ -30,10 +37,5 @@ namespace Projektarbete
             return damage;
         }
 
-        public int Eat(int currentHealth, int healthRegen) //Funktion för att beräkna nytt Health värde efter spelaren/fienden har blivit skadad.
-        {
-            currentHealth += healthRegen;
-            return currentHealth;
-        }
     }
 }

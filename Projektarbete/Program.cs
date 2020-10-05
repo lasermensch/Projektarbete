@@ -19,6 +19,7 @@ namespace Projektarbete
             world.PrintWorld();
             StartGame(world);
             Console.ReadKey();
+            GenerateItems();
         }
         static void StartGame(World world)
         {
@@ -45,7 +46,31 @@ namespace Projektarbete
             PlayerMovement(world, character);
         }
 
+        static void GenerateItems()
+        {
+            //Kod för att generera items
+            var listOfGeneratedItems = new List<Item>();
+            Item apple = new Item("apple", 4, 0, 0);//Genererar ett äpple.
+            listOfGeneratedItems.Add(apple);
 
+            Item orange = new Item("orange", 5, 0, 0);
+            listOfGeneratedItems.Add(orange);//Genererar en apelsin.
+
+            Item pear = new Item("pear", 2, 0, 0);
+            listOfGeneratedItems.Add(pear);
+
+            Item banana = new Item("banana", 7, 0, 0);
+            listOfGeneratedItems.Add(banana);//Genererar en banan.
+
+            Item sword = new Item("sword", 0, 5, 0);
+            listOfGeneratedItems.Add(sword);
+
+            Item knife = new Item("knife", 0, 2, 0);
+            listOfGeneratedItems.Add(knife);
+
+            Item shield = new Item("shield", 0, 0, 5);
+            listOfGeneratedItems.Add(shield);
+        }
 
         static void PlayerMovement(World world, Player character) //Kodstycke som säger åt konsolen hur "spelaren" rör sig runt på spelplanen.
         {

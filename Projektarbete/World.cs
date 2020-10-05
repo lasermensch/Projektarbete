@@ -54,9 +54,9 @@ namespace Projektarbete
                     p = new Point(x, y);
                     Entity entity = new Enemy(); //När det finns en konstruktor för Enemy måste detta fixas. Samma gäller för Item nedan.
 
-                    if (numberOfEntities > 5)
-                        entity = new Item();
-                    
+                    //if (numberOfEntities > 5)
+                    //    entity = new Item();
+
                     entity.position = p;
                     ListOfItemsAndEnemies.Add(entity);
                     numberOfEntities--;
@@ -75,15 +75,8 @@ namespace Projektarbete
                 //    Positions.Add(p);
                 //}
             }
-            
         }
-        static void ViewBackpack(string s, int x, int y)
-        {
-            var backpackContent = new Player();
-
-            Console.SetCursorPosition(x, y);
-            Console.Write(s);
-        }
+        
         public void PrintWorld()
         {
             for (int i = 0; i < Height; i++)
