@@ -22,8 +22,17 @@ namespace Projektarbete
         }
         static void StartGame(World world)
         {
+            string s = "Backpack:";
+            ViewBackpack(s, 62, 0);
             InstantiatePlayer(world);
-            
+        }
+
+        static void ViewBackpack(string s, int x, int y)
+        {
+            var backpackContent = new Player();
+
+            Console.SetCursorPosition(x, y);
+            Console.Write(s);
         }
 
         static void InstantiatePlayer(World world)
@@ -36,7 +45,7 @@ namespace Projektarbete
             PlayerMovement(world, character);
         }
 
-        
+
 
         static void PlayerMovement(World world, Player character) //Kodstycke som säger åt konsolen hur "spelaren" rör sig runt på spelplanen.
         {
@@ -58,7 +67,7 @@ namespace Projektarbete
                 Console.SetCursorPosition(x, y);
                 var command = Console.ReadKey(true).Key;
                 Console.Write(Map[y, x]);
-                
+
 
                 switch (command)
                 {
@@ -85,7 +94,7 @@ namespace Projektarbete
                 {
                     Entities entity = world.ListOfItemsAndEnemies.Find(e => (e.position.X == x && e.position.Y == y));
                     bool pass = Meet(character, entity, out bool hasFought);
-                    if (hasFought) 
+                    if (hasFought)
                     {
                         Thread.Sleep(1500);
                         Console.Clear();

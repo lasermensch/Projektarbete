@@ -77,7 +77,13 @@ namespace Projektarbete
             }
             
         }
+        static void ViewBackpack(string s, int x, int y)
+        {
+            var backpackContent = new Player();
 
+            Console.SetCursorPosition(x, y);
+            Console.Write(s);
+        }
         public void PrintWorld()
         {
             for (int i = 0; i < Height; i++)
