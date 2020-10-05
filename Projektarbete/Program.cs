@@ -92,7 +92,7 @@ namespace Projektarbete
                 }
                 if (Map[y, x] != '.')
                 {
-                    Creature entity = world.ListOfItemsAndEnemies.Find(e => (e.position.X == x && e.position.Y == y));
+                    Entity entity = world.ListOfItemsAndEnemies.Find(e => (e.position.X == x && e.position.Y == y));
                     bool pass = Meet(character, entity, out bool hasFought);
                     if (hasFought)
                     {
@@ -115,7 +115,7 @@ namespace Projektarbete
             }
 
         }
-        static bool Meet(Player player, Creature entity, out bool hasFought)
+        static bool Meet(Player player, Entity entity, out bool hasFought)
         {
             hasFought = false;
             bool pass = false;
