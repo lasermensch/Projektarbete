@@ -158,6 +158,9 @@ namespace Projektarbete
                             Thread.Sleep(200);
                             if (enemy.Health > 0)
                             {
+                                // int randomAttack = Random.next(5);
+                                // damage = randomAttack < 2 ? enemy.Punch(rng, player.Armour) : enemy.Kick(rng, player.Armour);
+
                                 damage = enemy.Punch(rng, player.Armour);
                                 player.Health -= damage;
                                 Console.WriteLine($"The dastardly foe has punched you, inflicting {damage} in damage on you!");
