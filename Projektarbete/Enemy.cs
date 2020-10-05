@@ -3,7 +3,7 @@ using System.Runtime.InteropServices.ComTypes;
 
 namespace Projektarbete
 {
-    class Enemy : Entities
+    class Enemy : Creature
         
     {
         public Enemy()

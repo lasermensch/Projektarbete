@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Projektarbete
 {
-    class Player : Entities
+    class Player : Creature
     {
         List<Item> Backpack = new List<Item>();
 

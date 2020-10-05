@@ -1,6 +1,6 @@
 ﻿namespace Projektarbete
 {
-    class Item : Entities
+    class Item : Entity
     {
         public int apple = 3;
         public int orange = 4;

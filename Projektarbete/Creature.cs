@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace Projektarbete
 {
-    class Entities
+    class Creature
     {
         public int Health { get; set; }
         public int Strength { get; set; }
