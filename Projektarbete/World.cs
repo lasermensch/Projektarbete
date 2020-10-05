@@ -13,13 +13,13 @@ namespace Projektarbete
         public char[,] Map { get; protected set; } //kartans rutnät. Protected set innebär att bara denna klass och underklasser har tillgång till att direkt tilldela denna egenskap ett värde.
         public int Width { get; protected set; } //Så att man kan använda sig av width och height senare.
         public int Height { get; protected set; }
-        public List<Creature> ListOfItemsAndEnemies { get; protected set; }
+        public List<Entity> ListOfItemsAndEnemies { get; protected set; }
         public World(int height, int width) //Konstruktor för att generera världen.
         {
             Map = new char[height, width]; 
             Width = Map.GetLength(1); 
             Height = Map.GetLength(0);
-            ListOfItemsAndEnemies = new List<Creature>();
+            ListOfItemsAndEnemies = new List<Entity>();
 
             for (int i = 0; i < Height; i++)
             {
@@ -52,7 +52,7 @@ namespace Projektarbete
                 {
                     Map[y, x] = '@'; //placeholder. för att ha någonting i kodandets stund.
                     p = new Point(x, y);
-                    Creature entity = new Enemy(); //När det finns en konstruktor för Enemy måste detta fixas. Samma gäller för Item nedan.
+                    Entity entity = new Enemy(); //När det finns en konstruktor för Enemy måste detta fixas. Samma gäller för Item nedan.
 
                     if (numberOfEntities > 5)
                         entity = new Item();
