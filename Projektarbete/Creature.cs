@@ -6,24 +6,24 @@ namespace Projektarbete
     class Creature : Entity
     {
         public int Health { get; set; }
-        public int Strength { get; set; }
-        public int Armour { get; set; }
-        public int Toughness { get; set; }
-        public int Initiative { get; set; }
-        public int Luck { get; set; }
+        public int Strength { get; protected set; }
+        public int Armour { get; protected set; }
+        public int Initiative { get; protected set; }
+        public int Luck { get; protected set; }
+
+        public Creature(int health, int strength, int armour, int initiative, int luck, Point position, char repChar) : base( repChar, position)
+        {
+            Health = health;
+            Strength = strength;
+            Armour = armour;
+            Initiative = initiative;
+            Luck = luck;
+        }
 
         
+        
 
-        public int Punch(int health, int strength, int armour)
-        {
-            health = Health;
-            strength = Strength;
-            armour = Armour;
-
-            int damage = health + armour - strength; //Så att någonting händer baserat på armour och strength. 
-            return damage;
-        }
-        public int Punch(Random rng, int armour) //Modifierad metod.
+        public int Punch(Random rng, int armour)
         {
             int damage = 0;
             int luckModifier = rng.Next(-3 + Luck, 0);
@@ -32,14 +32,13 @@ namespace Projektarbete
                 damage = 0;
             return damage;
         }
-
-        public int Kick(int health, int strenght, int armour)
+        public int Kick(Random rng, int armour)
         {
-            health = Health;
-            strenght = Strength;
-            armour = Armour;
-
-            int damage = health + armour - (strenght + 2);//Lägger till mer skada vid Kick funktionen.
+            int damage = 0;
+            int luckModifier = rng.Next(-3 + Luck, 0);
+            damage = luckModifier + (Strength * 3 / 2) - armour;
+            if (damage < 1)
+                damage = 0;
             return damage;
         }
 

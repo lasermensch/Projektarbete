@@ -4,6 +4,7 @@ using System.Dynamic;
 using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Drawing;
+using System.Linq;
 
 namespace Projektarbete
 {
@@ -43,40 +44,62 @@ namespace Projektarbete
             int x;
             int y;
             Point p;
-            
+            List<Item> items = GenerateItems();
             while (true)
             {
                 x = r.Next(1, Width);
                 y = r.Next(1, Height);
                 if (Map[y,x] == '.')
                 {
-                    Map[y, x] = '@'; //placeholder. för att ha någonting i kodandets stund.
+                     //placeholder. för att ha någonting i kodandets stund.
                     p = new Point(x, y);
-                    Entity entity = new Enemy(); //När det finns en konstruktor för Enemy måste detta fixas. Samma gäller för Item nedan.
-
-                    //if (numberOfEntities > 5)
-                    //    entity = new Item();
-
-                    entity.position = p;
+                    Entity entity = new Enemy(15, 10, 10, 5, 2, p); //När det finns en konstruktor för Enemy måste detta fixas. Samma gäller för Item nedan.
+                    
+                    if(numberOfEntities <= items.Count)
+                    {
+                        entity = items[0];
+                        entity.Position = p;
+                        items.RemoveAt(0);
+                    }
+                    Map[y, x] = entity.RepChar;
                     ListOfItemsAndEnemies.Add(entity);
                     numberOfEntities--;
                 }
                 if (numberOfEntities < 1)
                     break;
-
-                //Instansierar en placeholder för items
-                //x = r.Next(1, Width);
-                //y = r.Next(1, Height);
-                //if (Map[y, x] == '.')
-                //{
-
-                //    Map[y, x] = 'A'; //placeholder. för att ha någonting i kodandets stund.
-                //    p = new Point(x, y);
-                //    Positions.Add(p);
-                //}
+                
+                
             }
         }
-        
+        public static List<Item> GenerateItems()
+        {
+            //Kod för att generera items
+            Point p = new Point(0, 0); //Behöver finnas där just nu.
+            var listOfGeneratedItems = new List<Item>();
+            Item apple = new Item("apple", 4, 0, 0, p);//Genererar ett äpple.
+            listOfGeneratedItems.Add(apple);
+
+            Item orange = new Item("orange", 5, 0, 0, p);
+            listOfGeneratedItems.Add(orange);//Genererar en apelsin.
+
+            Item pear = new Item("pear", 2, 0, 0, p);
+            listOfGeneratedItems.Add(pear);
+
+            Item banana = new Item("banana", 7, 0, 0, p);
+            listOfGeneratedItems.Add(banana);//Genererar en banan.
+
+            Item sword = new Item("sword", 0, 5, 0, p);
+            listOfGeneratedItems.Add(sword);
+
+            Item knife = new Item("knife", 0, 2, 0, p);
+            listOfGeneratedItems.Add(knife);
+
+            Item shield = new Item("shield", 0, 0, 5, p);
+            listOfGeneratedItems.Add(shield);
+
+            return listOfGeneratedItems;
+        }
+
         public void PrintWorld()
         {
             for (int i = 0; i < Height; i++)

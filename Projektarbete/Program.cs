@@ -14,12 +14,11 @@ namespace Projektarbete
         {
             Console.SetWindowSize(100, 60);
             World world = new World(30, 60);
-            world.GeneratePositions(10);
-
+            world.GeneratePositions(12);
             world.PrintWorld();
             StartGame(world);
-            Console.ReadKey();
-            GenerateItems();
+            
+            
         }
         static void StartGame(World world)
         {
@@ -30,7 +29,7 @@ namespace Projektarbete
 
         static void ViewBackpack(string s, int x, int y)
         {
-            var backpackContent = new Player();
+            //var backpackContent = new Player();
 
             Console.SetCursorPosition(x, y);
             Console.Write(s);
@@ -38,39 +37,14 @@ namespace Projektarbete
 
         static void InstantiatePlayer(World world)
         {
-            var character = new Player(); //Exempel på instans av spelare, värden kan ändras efter behov.
-            character.Health = 10;
-            character.Strength = 2;
-            character.Armour = 4;
+            Point p = new Point(15, 15);
+            var character = new Player(20, 14, 8, 8, 2, p); //Instantiering av spelare, värden kan ändras efter behov.
+            
 
             PlayerMovement(world, character);
         }
 
-        static void GenerateItems()
-        {
-            //Kod för att generera items
-            var listOfGeneratedItems = new List<Item>();
-            Item apple = new Item("apple", 4, 0, 0);//Genererar ett äpple.
-            listOfGeneratedItems.Add(apple);
-
-            Item orange = new Item("orange", 5, 0, 0);
-            listOfGeneratedItems.Add(orange);//Genererar en apelsin.
-
-            Item pear = new Item("pear", 2, 0, 0);
-            listOfGeneratedItems.Add(pear);
-
-            Item banana = new Item("banana", 7, 0, 0);
-            listOfGeneratedItems.Add(banana);//Genererar en banan.
-
-            Item sword = new Item("sword", 0, 5, 0);
-            listOfGeneratedItems.Add(sword);
-
-            Item knife = new Item("knife", 0, 2, 0);
-            listOfGeneratedItems.Add(knife);
-
-            Item shield = new Item("shield", 0, 0, 5);
-            listOfGeneratedItems.Add(shield);
-        }
+        
 
         static void PlayerMovement(World world, Player character) //Kodstycke som säger åt konsolen hur "spelaren" rör sig runt på spelplanen.
         {
@@ -78,7 +52,7 @@ namespace Projektarbete
             var Map = world.Map;
             int Width = Map.GetLength(1);
             int Height = Map.GetLength(0);
-            char player = '¤';
+            char player = character.RepChar;
 
             int x = Width / 2;
             int y = Height / 2;
@@ -117,7 +91,7 @@ namespace Projektarbete
                 }
                 if (Map[y, x] != '.')
                 {
-                    Entity entity = world.ListOfItemsAndEnemies.Find(e => (e.position.X == x && e.position.Y == y));
+                    Entity entity = world.ListOfItemsAndEnemies.Find(e => (e.Position.X == x && e.Position.Y == y));
                     bool pass = Meet(character, entity, out bool hasFought);
                     if (hasFought)
                     {
@@ -144,7 +118,7 @@ namespace Projektarbete
         {
             hasFought = false;
             bool pass = false;
-            if (entity.GetType().ToString().EndsWith("Enemy"))
+            if (entity is Enemy)
             {
                 if (Fight(player, entity as Enemy))
                     pass = true;

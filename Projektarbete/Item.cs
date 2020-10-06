@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Runtime.InteropServices.ComTypes;
 
 namespace Projektarbete
@@ -11,33 +12,22 @@ namespace Projektarbete
             return currentHealth;
         }
 
-        //Consumable items
-        public string apple { get; set; }
-        public string orange { get; set; }
-        public string pear { get; set; }
-        public string banana { get; set; }
-
-        //Passive items
-        public string sword { get; set; }
-        public string knife { get; set; }
-        public string shield { get; set; }
-
+        
         //Värden för items.
-        public string Name { get; set; }
 
-        public int HealthBoost;
+        public int HealthBoost { get; protected set; }
 
-        public int StrenghtBoost;
+        public int StrenghtBoost { get; protected set; }
 
-        public int DefenseBoost;
+        public int DefenseBoost { get; protected set; }
 
         //Konstruktor för items.
-        public Item(string name, int healthboost, int strenghtboost, int defenseboost)
+        public Item(string name, int healthboost, int strenghtboost, int defenseboost, Point position, char repChar = '@'):base (repChar, position)
         {
-            name = Name;
-            healthboost = HealthBoost;
-            strenghtboost = StrenghtBoost;
-            defenseboost = DefenseBoost;
+            Name = name;
+            HealthBoost = healthboost;
+            StrenghtBoost = strenghtboost;
+            DefenseBoost = defenseboost;    
         }
     }
 }

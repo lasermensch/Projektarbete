@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace Projektarbete
 {
     class Player : Creature
     {
-        List<Item> Backpack = new List<Item>();
+        public List<Item> Backpack { get; protected set; }
 
+        public Player (int health, int strength, int armour, int initiative, int luck, Point position, char repChar = '¤'): base (health, strength, armour, initiative, luck, position, repChar)
+        {
+            Backpack = new List<Item>();
+        }
         public void PickUp(Item item)
         {
             Backpack.Add(item);
@@ -18,24 +23,7 @@ namespace Projektarbete
             //sedan kalla metoden från StartGame().
         }
 
-        public int Punch(Random rng, int armour)
-        { 
-            int damage = 0;
-            int luckModifier = rng.Next(-3 + Luck, 0);
-            damage = luckModifier + Strength - armour;
-            if (damage < 1)
-                damage = 0;
-            return damage;
-        }
-        public int Kick(Random rng, int armour)
-        {
-            int damage = 0;
-            int luckModifier = rng.Next(-3 + Luck, 0);
-            damage = luckModifier + (Strength * 3 / 2) - armour;
-            if (damage < 1)
-                damage = 0;
-            return damage;
-        }
+        
 
     }
 }
