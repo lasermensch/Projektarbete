@@ -17,7 +17,7 @@ namespace Projektarbete
             Backpack.Add(item);
         }
 
-        public void displayBackpack()
+        public void DisplayBackpack()
         {
             int i = 0;
             Console.SetCursorPosition(63, i);
