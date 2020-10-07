@@ -90,8 +90,28 @@ namespace Projektarbete
                 Console.Write("                               ");
                 Console.SetCursorPosition(left, top);
                 Console.WriteLine(s);
-
+                
             }
+            top++;
+            Console.SetCursorPosition(left, top);
+            Console.Write("                               ");
+            Console.SetCursorPosition(left, top);
+            Console.WriteLine("Symbols ");
+            top++;
+            Console.SetCursorPosition(left, top);
+            Console.Write("                               ");
+            Console.SetCursorPosition(left, top);
+            Console.WriteLine("¤ = Player"); 
+            top++;
+            Console.SetCursorPosition(left, top);
+            Console.Write("                               ");
+            Console.SetCursorPosition(left, top);
+            Console.WriteLine("% = Enemy");
+            top++;
+            Console.SetCursorPosition(left, top);
+            Console.Write("                               ");
+            Console.SetCursorPosition(left, top);
+            Console.WriteLine("@ = Item ");
         }
 
 
