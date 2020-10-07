@@ -5,12 +5,6 @@ namespace Projektarbete
 {
     class Item : Entity
     {
-        public static int ConsumeItem(int currentHealth, int healthRegen) //Skicka in Player.Health och värdet hpBoost som consumablen har.
-        {
-            currentHealth += healthRegen;
-            return currentHealth;
-        }
-
         
         //Värden för items.
 
