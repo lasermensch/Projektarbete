@@ -23,7 +23,7 @@ namespace Projektarbete
         static void StartGame(World world)
         {
             string s = "Backpack:";
-            ViewBackpack(s, 62, 0);
+            //ViewBackpack(s, 62, 0);
             InstantiatePlayer(world);
         }
 
@@ -105,6 +105,8 @@ namespace Projektarbete
                         y = temp.Item2;
                         continue;
                     }
+                    character.displayBackpack();
+
                 }
                 Map[y, x] = player;
 

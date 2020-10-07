@@ -17,10 +17,18 @@ namespace Projektarbete
             Backpack.Add(item);
         }
 
-        public static void displayBackpack()
+        public void displayBackpack()
         {
-            //Tanken är att skapa en foreach loop av innehållet i listan backpack och skriva ut den här,
-            //sedan kalla metoden från StartGame().
+            int i = 0;
+            Console.SetCursorPosition(63, i);
+            Console.WriteLine("Backpack: ");
+            foreach (var item in Backpack)
+            {
+                i++;
+                Console.SetCursorPosition(63, i);
+                Console.WriteLine(item.Name);
+                
+            }
         }
 
         
