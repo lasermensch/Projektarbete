@@ -191,7 +191,7 @@ namespace Projektarbete
                 Console.WriteLine($"Round: {counter}" +
                                    $"\nYou have {player.Health} in health!" +
                                    $"\nYour enemy has {enemy.Health} in health");
-                Console.WriteLine("Choose your action: \n1. Punch \n2. Kick \n3. Flee");
+                Console.WriteLine("Choose your action: \n1. Hit \n2. Kick \n3. Flee");
                 while (true)
                 {
                     ConsoleKey choice = Console.ReadKey(true).Key;
@@ -201,7 +201,7 @@ namespace Projektarbete
                         int damage = 0;
                         string attackType = "";
                         if (choice == ConsoleKey.D1)
-                        { damage = player.Punch(rng, enemy.Armour); attackType = "punch"; }
+                        { damage = player.Punch(rng, enemy.Armour); attackType = "hit"; }
                         else
                         { damage = player.Kick(rng, enemy.Armour); attackType = "kick"; }
 
