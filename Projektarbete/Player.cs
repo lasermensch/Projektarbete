@@ -10,15 +10,30 @@ namespace Projektarbete
         public List<Item> Backpack { get; protected set; }
         public Item EquippedWeapon { get; protected set; }
         public Item EquippedArmour { get; protected set; }
-        
-
-
-        public Player (int health, int strength, int armour, int initiative, int luck, Point position, char repChar = '¤'): base (health, strength, armour, initiative, luck, position, repChar)
+        public Player(int health, int strength, int armour, int initiative, int luck, Point position, char repChar = '¤') : base(health, strength, armour, initiative, luck, position, repChar)
         {
             Backpack = new List<Item>();
             Point p = new Point(-1, -1);
             EquippedWeapon = new Item(" ", 0, 0, 0, p);
             EquippedArmour = EquippedWeapon;
+        }
+
+        public string ShowStats()
+        {
+            string s = $" ,Player stats: ," + //INTE ett fel att komma är där!
+                       $"Health: {Health} ," +
+                       $"Strength: {Strength} ," +
+                       $"Armour: {Armour} ," +
+                       $"Initiative: {Initiative} ," +
+                       $"Luck: {Luck} ,";
+                         
+            if (EquippedArmour.Name != " ")
+                s += $"Equipped Armour: {EquippedArmour.Name} ,";
+            if (EquippedWeapon.Name != " ")
+                s += $"Equipped Weapon: {EquippedWeapon.Name} ,";
+
+            return s;
+
         }
         public void PickUp(Item item)
         {
@@ -28,7 +43,7 @@ namespace Projektarbete
         {
             index--; //Så att om man väljer 1, så kommer man att välja första föremålet i listan. Annars måste man välja 0.
             string itemName = Backpack[index].Name;
-            switch(itemName)
+            switch (itemName)
             {
                 case "apple":
                 case "banana":
@@ -53,7 +68,7 @@ namespace Projektarbete
             }
 
         }
-        public void displayBackpack()
+        public void DisplayBackpack()
         {
             int i = 0;
             Console.SetCursorPosition(63, i);
@@ -62,12 +77,24 @@ namespace Projektarbete
             {
                 i++;
                 Console.SetCursorPosition(63, i);
-                Console.WriteLine(item.Name);
-                
+                Console.Write("                        ");
+                Console.SetCursorPosition(63, i);
+                Console.WriteLine(i + ". " + item.Name);
+
+            }
+            Console.WriteLine();
+            foreach (var s in ShowStats().Split(','))
+            {
+                i++;
+                Console.SetCursorPosition(63, i);
+                Console.Write("                               ");
+                Console.SetCursorPosition(63, i);
+                Console.WriteLine(s);
+
             }
         }
 
-        
+
 
     }
 }

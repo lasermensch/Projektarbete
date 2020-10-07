@@ -19,8 +19,6 @@ namespace Projektarbete
         }
         static void StartGame(World world)
         {
-            string s = "Backpack:";
-            //ViewBackpack(s, 62, 0);
             InstantiatePlayer(world);
         }
 
@@ -46,16 +44,17 @@ namespace Projektarbete
             int x = Width / 2;
             int y = Height / 2;
             Map[y, x] = player;
-
+            //Console.SetCursorPosition()
 
             while (true)
             {
                 Map[y, x] = '.';
                 Tuple<int, int> temp = new Tuple<int, int>(x, y); //Lagra koordinaten, utifall fienden inte besegras.
+                character.DisplayBackpack();
+
                 Console.SetCursorPosition(x, y);
                 var command = Console.ReadKey(true).Key;
                 Console.Write(Map[y, x]);
-
 
                 switch (command)
                 {
@@ -107,7 +106,6 @@ namespace Projektarbete
                         y = temp.Item2;
                         continue;
                     }
-                    character.DisplayBackpack();
 
                 }
                 Map[y, x] = player;
