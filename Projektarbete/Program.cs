@@ -48,11 +48,13 @@ namespace Projektarbete
             int x = Width / 2;
             int y = Height / 2;
             Map[y, x] = player;
-            //Console.SetCursorPosition()
+            Console.SetCursorPosition(x, y);
+            Console.Write(player);
             character.DisplayBackpack(world.Width);
-
+            
             while (true)
             {
+                
                 Map[y, x] = '.';
                 Tuple<int, int> temp = new Tuple<int, int>(x, y); //Lagra koordinaten, utifall fienden inte besegras.
 
