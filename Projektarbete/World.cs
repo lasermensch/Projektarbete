@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Dynamic;
-using System.Reflection.PortableExecutable;
-using System.Text;
 using System.Drawing;
-using System.Linq;
+
 
 namespace Projektarbete
 {

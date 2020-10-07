@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Threading;
 
 namespace Projektarbete
@@ -212,6 +209,7 @@ namespace Projektarbete
             { Console.WriteLine("You have died in shame from a mere punch!"); return false; }
 
         }
+
     }
 }
 
