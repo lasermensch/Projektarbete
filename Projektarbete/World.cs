@@ -50,7 +50,7 @@ namespace Projektarbete
                 {
                      //placeholder. för att ha någonting i kodandets stund.
                     p = new Point(x, y);
-                    Entity entity = new Enemy(15, 10, 10, 5, 2, p); //När det finns en konstruktor för Enemy måste detta fixas. Samma gäller för Item nedan.
+                    Entity entity = new Enemy(15, 13, 10, 5, 2, p); //När det finns en konstruktor för Enemy måste detta fixas. Samma gäller för Item nedan.
                     
                     if(numberOfEntities <= items.Count)
                     {
@@ -73,16 +73,16 @@ namespace Projektarbete
             //Kod för att generera items
             Point p = new Point(0, 0); //Behöver finnas där just nu.
             var listOfGeneratedItems = new List<Item>();
-            Item apple = new Item("apple", 4, 0, 0, p);//Genererar ett äpple.
+            Item apple = new Item("apple", 7, 0, 0, p);//Genererar ett äpple.
             listOfGeneratedItems.Add(apple);
 
             Item orange = new Item("orange", 5, 0, 0, p);
             listOfGeneratedItems.Add(orange);//Genererar en apelsin.
 
-            Item pear = new Item("pear", 2, 0, 0, p);
+            Item pear = new Item("pear", 4, 0, 0, p);
             listOfGeneratedItems.Add(pear);
 
-            Item banana = new Item("banana", 7, 0, 0, p);
+            Item banana = new Item("banana", 8, 0, 0, p);
             listOfGeneratedItems.Add(banana);//Genererar en banan.
 
             Item sword = new Item("sword", 0, 5, 0, p);
@@ -91,7 +91,7 @@ namespace Projektarbete
             Item knife = new Item("knife", 0, 2, 0, p);
             listOfGeneratedItems.Add(knife);
 
-            Item shield = new Item("shield", 0, 0, 5, p);
+            Item shield = new Item("shield", 0, 0, 2, p);
             listOfGeneratedItems.Add(shield);
 
             return listOfGeneratedItems;
