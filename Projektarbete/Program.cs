@@ -200,7 +200,7 @@ namespace Projektarbete
                     }
                     else
                     {
-                        Console.WriteLine("Choose 1 or 2");
+                        Console.WriteLine("Choose 1, 2 or 3");
                     }
                 }
                 Thread.Sleep(1500);
