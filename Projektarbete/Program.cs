@@ -83,7 +83,12 @@ namespace Projektarbete
                         Console.Write("Select an item in packpack by index: ");
 
                         if (int.TryParse(Console.ReadLine(), out int index))
-                            character.UseItem(index);
+                        {
+                            if (index < 1 || index > character.Backpack.Count)
+                            { Console.WriteLine("That index is incorrect!"); Thread.Sleep(500); break; }
+                            else
+                                character.UseItem(index);
+                        }
                         else
                             Console.Write("Invalid number");
                         character.DisplayBackpack(world.Width);
