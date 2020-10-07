@@ -24,14 +24,6 @@ namespace Projektarbete
             InstantiatePlayer(world);
         }
 
-        static void ViewBackpack(string s, int x, int y)
-        {
-            //var backpackContent = new Player();
-
-            Console.SetCursorPosition(x, y);
-            Console.Write(s);
-        }
-
         static void InstantiatePlayer(World world)
         {
             Point p = new Point(15, 15);
@@ -115,7 +107,7 @@ namespace Projektarbete
                         y = temp.Item2;
                         continue;
                     }
-                    character.displayBackpack();
+                    character.DisplayBackpack();
 
                 }
                 Map[y, x] = player;
@@ -212,7 +204,7 @@ namespace Projektarbete
                     }
                     else
                     {
-                        Console.WriteLine("Choose 1, 2 or 3");
+                        Console.WriteLine("Choose 1 or 2");
                     }
                 }
                 Thread.Sleep(1500);
