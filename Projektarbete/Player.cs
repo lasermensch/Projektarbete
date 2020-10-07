@@ -72,7 +72,7 @@ namespace Projektarbete
         {
             left += 3;
             Console.SetCursorPosition(left, top);
-            Console.WriteLine("Backpack: ");
+            Console.WriteLine("Backpack: To use item press TAB button on keyboard. ");
             foreach (var item in Backpack)
             {
                 top++;
