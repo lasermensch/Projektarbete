@@ -83,6 +83,19 @@ namespace Projektarbete
                         if (y < Height - 2)
                             y++;
                         break;
+                    case ConsoleKey.Tab:
+                        Console.SetCursorPosition(0, 33);
+                        Console.Write("Select an item in packpack by index: ");
+
+                        if (int.TryParse(Console.ReadLine(), out int index))
+                            character.UseItem(index);
+                        else
+                            Console.Write("Invalid number");
+
+                        Thread.Sleep(1000);
+                        Console.SetCursorPosition(0, 33);
+                        Console.WriteLine("                                                 \n                            "); //Skriver över texten med mellanslag i brist på lämplig sudd-metod.
+                        break;
                     default:
                         break;
                 }
