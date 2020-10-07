@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Threading;
 
 namespace Projektarbete
@@ -9,6 +11,7 @@ namespace Projektarbete
 
         static void Main(string[] args)
         {
+            
             Console.SetWindowSize(100, 60);
             World world = new World(30, 60);
             world.GeneratePositions(12);
@@ -40,17 +43,18 @@ namespace Projektarbete
             int Width = Map.GetLength(1);
             int Height = Map.GetLength(0);
             char player = character.RepChar;
+            bool hasWon = false;
 
             int x = Width / 2;
             int y = Height / 2;
             Map[y, x] = player;
             //Console.SetCursorPosition()
+            character.DisplayBackpack(world.Width);
 
             while (true)
             {
                 Map[y, x] = '.';
                 Tuple<int, int> temp = new Tuple<int, int>(x, y); //Lagra koordinaten, utifall fienden inte besegras.
-                character.DisplayBackpack();
 
                 Console.SetCursorPosition(x, y);
                 var command = Console.ReadKey(true).Key;
@@ -82,7 +86,7 @@ namespace Projektarbete
                             character.UseItem(index);
                         else
                             Console.Write("Invalid number");
-
+                        character.DisplayBackpack(world.Width);
                         Thread.Sleep(1000);
                         Console.SetCursorPosition(0, 33);
                         Console.WriteLine("                                                 \n                            "); //Skriver över texten med mellanslag i brist på lämplig sudd-metod.
@@ -96,10 +100,16 @@ namespace Projektarbete
                     bool pass = Meet(character, entity, out bool hasFought);
                     if (hasFought)
                     {
+                        if(pass)
+                        {
+                            world.ListOfItemsAndEnemies.Remove(world.ListOfItemsAndEnemies.Find(e => e.Position.X == x && e.Position.Y == y));
+                        }    
                         Thread.Sleep(1500);
                         Console.Clear();
                         world.PrintWorld();
                     }
+                    character.DisplayBackpack(world.Width);
+
                     if (!pass)
                     {
                         x = temp.Item1;
@@ -113,8 +123,35 @@ namespace Projektarbete
                 Console.SetCursorPosition(x, y);
 
                 Console.Write(Map[y, x]);
+                if (character.Health < 1)
+                { break; }
+                if (world.ListOfItemsAndEnemies.FindAll(e => e.Name == "Monster").Count < 1)
+                { hasWon = true; break; }
+                
             }
-
+            Console.Clear();
+            if (hasWon)
+                Console.WriteLine("Congratulations! All your enemies have been defeated!");
+            else
+                Console.WriteLine("Boo! You lost!");
+            string answ = "";
+            while (answ != "y")
+            {
+                Console.WriteLine("Do you want to play again? (Y/N)");
+                answ = Console.ReadLine().ToLower();
+                if (answ == "y")
+                    break;
+                else if (answ == "n")
+                    return;
+                else
+                    Console.WriteLine("Write 'Y' or 'N'");
+            }
+            RestartGame();
+        }
+        static void RestartGame()
+        {
+            Console.Clear();
+            Main(null);
         }
         static bool Meet(Player player, Entity entity, out bool hasFought)
         {
@@ -123,7 +160,7 @@ namespace Projektarbete
             if (entity is Enemy)
             {
                 if (Fight(player, entity as Enemy))
-                    pass = true;
+                    pass = true;  
 
                 hasFought = true;
             }
@@ -132,6 +169,7 @@ namespace Projektarbete
                 player.PickUp(entity as Item);
                 pass = true;
             }
+
             return pass;
 
         }

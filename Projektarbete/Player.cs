@@ -58,7 +58,7 @@ namespace Projektarbete
                     Armour += EquippedArmour.DefenseBoost;
                     break;
                 case "sword":
-                case "dagger":
+                case "knife":
                     Strength -= EquippedWeapon.StrenghtBoost;
                     EquippedWeapon = Backpack.ElementAt(index);
                     Strength += EquippedWeapon.StrenghtBoost;
@@ -68,27 +68,27 @@ namespace Projektarbete
             }
 
         }
-        public void DisplayBackpack()
+        public void DisplayBackpack( int left, int top = 0)
         {
-            int i = 0;
-            Console.SetCursorPosition(63, i);
+            left += 3;
+            Console.SetCursorPosition(left, top);
             Console.WriteLine("Backpack: ");
             foreach (var item in Backpack)
             {
-                i++;
-                Console.SetCursorPosition(63, i);
+                top++;
+                Console.SetCursorPosition(left, top);
                 Console.Write("                        ");
-                Console.SetCursorPosition(63, i);
-                Console.WriteLine(i + ". " + item.Name);
+                Console.SetCursorPosition(left, top);
+                Console.WriteLine(top + ". " + item.Name);
 
             }
             Console.WriteLine();
             foreach (var s in ShowStats().Split(','))
             {
-                i++;
-                Console.SetCursorPosition(63, i);
+                top++;
+                Console.SetCursorPosition(left, top);
                 Console.Write("                               ");
-                Console.SetCursorPosition(63, i);
+                Console.SetCursorPosition(left, top);
                 Console.WriteLine(s);
 
             }
