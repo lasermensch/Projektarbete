@@ -121,14 +121,13 @@ namespace Projektarbete
                     {
                         x = temp.Item1;
                         y = temp.Item2;
-                        continue;
+                
                     }
 
                 }
                 Map[y, x] = player;
 
                 Console.SetCursorPosition(x, y);
-
                 Console.Write(Map[y, x]);
                 if (character.Health < 1)
                 { break; }
