@@ -73,25 +73,25 @@ namespace Projektarbete
             //Kod för att generera items
             Point p = new Point(0, 0); //Behöver finnas där just nu.
             var listOfGeneratedItems = new List<Item>();
-            Item apple = new Item("apple +7 hp", 7, 0, 0, p);//Genererar ett äpple.
+            Item apple = new Item("apple", 7, 0, 0, p);//Genererar ett äpple.
             listOfGeneratedItems.Add(apple);
 
-            Item orange = new Item("orange +5 hp", 5, 0, 0, p);
+            Item orange = new Item("orange", 5, 0, 0, p);
             listOfGeneratedItems.Add(orange);//Genererar en apelsin.
 
-            Item pear = new Item("pear +4 hp", 4, 0, 0, p);
+            Item pear = new Item("pear", 4, 0, 0, p);
             listOfGeneratedItems.Add(pear);
 
-            Item banana = new Item("banana +8 hp", 8, 0, 0, p);
+            Item banana = new Item("banana", 8, 0, 0, p);
             listOfGeneratedItems.Add(banana);//Genererar en banan.
 
-            Item sword = new Item("sword +5 str", 0, 5, 0, p);
+            Item sword = new Item("sword", 0, 5, 0, p);
             listOfGeneratedItems.Add(sword);
 
-            Item knife = new Item("knife +2 str", 0, 2, 0, p);
+            Item knife = new Item("knife", 0, 2, 0, p);
             listOfGeneratedItems.Add(knife);
 
-            Item shield = new Item("shield +2 arm", 0, 0, 2, p);
+            Item shield = new Item("shield", 0, 0, 2, p);
             listOfGeneratedItems.Add(shield);
 
             return listOfGeneratedItems;
