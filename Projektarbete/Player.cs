@@ -58,7 +58,7 @@ namespace Projektarbete
                     Armour += EquippedArmour.DefenseBoost;
                     break;
                 case "sword +5 str":
-                case "knife +2 st":
+                case "knife +2 str":
                     Strength -= EquippedWeapon.StrenghtBoost;
                     EquippedWeapon = Backpack.ElementAt(index);
                     Strength += EquippedWeapon.StrenghtBoost;
