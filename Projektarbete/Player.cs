@@ -45,20 +45,20 @@ namespace Projektarbete
             string itemName = Backpack[index].Name;
             switch (itemName)
             {
-                case "apple":
-                case "banana":
-                case "orange":
-                case "pear":
+                case "apple +7 hp":
+                case "banana +8 hp":
+                case "orange +5 hp":
+                case "pear +4 hp":
                     Health += Backpack[index].HealthBoost;
                     Backpack.RemoveAt(index);
                     break;
-                case "shield":
+                case "shield +2 arm":
                     Armour -= EquippedArmour.DefenseBoost;
                     EquippedArmour = Backpack.ElementAt(index);
                     Armour += EquippedArmour.DefenseBoost;
                     break;
-                case "sword":
-                case "knife":
+                case "sword +5 str":
+                case "knife +2 st":
                     Strength -= EquippedWeapon.StrenghtBoost;
                     EquippedWeapon = Backpack.ElementAt(index);
                     Strength += EquippedWeapon.StrenghtBoost;

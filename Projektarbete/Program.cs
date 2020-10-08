@@ -28,7 +28,7 @@ namespace Projektarbete
         static void InstantiatePlayer(World world)
         {
             Point p = new Point(15, 15);
-            var character = new Player(20, 14, 8, 8, 2, p); //Instantiering av spelare, värden kan ändras efter behov.
+            var character = new Player(20, 14, 8, 8, 2, p); //Instantiering av spe  lare, värden kan ändras efter behov.
             
 
             PlayerMovement(world, character);
